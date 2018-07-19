@@ -1,0 +1,31 @@
+:host {
+  flex: 1;
+  height: 100%;
+}
+
+.split-layout {
+  height: 100%;
+}
+
+#mapid {
+  height: 100%;
+  z-index: 1;
+}
+
+.gg{
+  z-index: 2000;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+.controls {
+  position: absolute;
+  z-index: 2;
+  padding: 1em;
+  background-color: white;
+  box-shadow: 5px 5px 15px 0px black;
+  border-radius: 5px;
+  bottom: 3em;
+  right: 2em;
+}

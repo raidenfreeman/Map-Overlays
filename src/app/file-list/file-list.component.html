@@ -1,0 +1,14 @@
+<!-- <vaadin-upload id="manualUpload" no-auto></vaadin-upload>
+<button id="uploadButton">Start Upload(s)</button> -->
+<button color="primary" mat-raised-button [ngxFilePicker]="readMode" ngxFilePicker accept="image/*" (filePick)="onFilePicked($event)" (readEnd)="onReadEnd($event)"
+  multiple>Click me!</button>
+
+<mat-list>
+  <ng-container *ngFor="let file of this.files">
+    <mat-list-item>
+      {{file.content}}
+      <app-file-controls></app-file-controls>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-list>

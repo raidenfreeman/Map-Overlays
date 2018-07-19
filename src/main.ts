@@ -4,6 +4,10 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+import 'hammerjs';
+import '@vaadin/vaadin-split-layout/vaadin-split-layout.js';
+import '@vaadin/vaadin-upload/vaadin-upload.js';
+
 if (environment.production) {
   enableProdMode();
 }

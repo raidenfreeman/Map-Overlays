@@ -1,0 +1,15 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.coordinates{
+  max-width: 8em;
+}
+
+:host{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

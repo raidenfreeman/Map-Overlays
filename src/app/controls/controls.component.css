@@ -1,0 +1,12 @@
+.example-form {
+  display: flex;
+  flex-direction: column;
+}
+:host{
+  padding: 0 2em;
+  padding-bottom: 0;
+}
+
+.example-full-width {
+  width: 8em;
+}

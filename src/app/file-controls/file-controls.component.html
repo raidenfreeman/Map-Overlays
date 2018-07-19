@@ -1,0 +1,17 @@
+<button (click)="locate.emit()" mat-icon-button>
+  <mat-icon aria-label="Locate overlay on map" color="accent">my_location</mat-icon>
+</button>
+
+<form class="form">
+  <mat-form-field class="coordinates">
+    <input (onchange)="handleCoordinate(0,$event)" type="number" matInput placeholder="X Coordinates">
+  </mat-form-field>
+  <mat-form-field class="coordinates">
+    <input (onchange)="handleCoordinate(1,$event)" type="number" matInput placeholder="Y Coordinates">
+  </mat-form-field>
+</form>
+<mat-slider thumbLabel tickInterval="1" thumbLabel [displayWith]="formatLabel" min="0" max="100" invert (change)="handleOpacity($event)"></mat-slider>
+
+<button (click)="delete.emit()" mat-icon-button>
+  <mat-icon aria-label="Delete overlay" color="warn">delete_forever</mat-icon>
+</button>
