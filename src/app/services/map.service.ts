@@ -20,7 +20,7 @@ export class MapService {
   constructor() {}
 
   setupMap(map: ElementRef) {
-    this.mapReference = L.map(map.nativeElement).setView([51.505, -0.09], 13);
+    this.mapReference = L.map(map.nativeElement).setView([40.75, -74.0], 13);
     L.tileLayer(
       'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
       {

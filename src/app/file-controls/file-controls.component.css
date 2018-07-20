@@ -17,6 +17,11 @@
   align-items: center;
 }
 
+.button-group {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .base-size-flex-item {
   flex-grow: 1;
 }

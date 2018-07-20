@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
 import { ReadFile, FilePickerDirective, ReadMode } from "ngx-file-helpers";
-import { MapService, AppOverlay } from "../services/image-storage.service";
+import { MapService, AppOverlay } from "../services/map.service";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 

@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import * as L from 'leaflet';
-import { MapService } from './services/image-storage.service';
+import { MapService } from './services/map.service';
 
 @Component({
   selector: 'app-root',

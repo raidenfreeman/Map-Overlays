@@ -2,19 +2,23 @@
   <mat-card class="coordinate-pair">
     <span class="mat-subheading-1" class="label-heading">Top Left</span>
     <mat-form-field class="coordinates">
-      <input step=".000001" inputmode="numeric" value="bounds.getWest()" (onchange)="handleCoordinate(0,$event)" type="number" matInput placeholder="X Coordinates">
+      <input step=".00001" inputmode="numeric" [(ngModel)]="bounds.topLeft.x" (input)="handleCoordinate()" name="West" type="number"
+        matInput placeholder="X Coordinates">
     </mat-form-field>
     <mat-form-field class="coordinates">
-      <input step=".000001" inputmode="numeric" value="bounds.getNorth()" (onchange)="handleCoordinate(1,$event)" type="number" matInput placeholder="Y Coordinates">
+      <input step=".00001" inputmode="numeric" [(ngModel)]="bounds.topLeft.y" (input)="handleCoordinate()" name="North" type="number"
+        matInput placeholder="Y Coordinates">
     </mat-form-field>
   </mat-card>
   <mat-card class="coordinate-pair">
     <span class="mat-subheading-1" class="label-heading">Bottom Right</span>
     <mat-form-field class="coordinates">
-      <input step=".000001" inputmode="numeric" value="bounds.getEast()"(onchange)="handleCoordinate(0,$event)" type="number" matInput placeholder="X Coordinates">
+      <input step=".00001" inputmode="numeric" [(ngModel)]="bounds.bottomRight.x" (input)="handleCoordinate()" name="East" type="number"
+        matInput placeholder="X Coordinates">
     </mat-form-field>
     <mat-form-field class="coordinates">
-      <input step=".000001" inputmode="numeric" value="bounds.getSouth()" (onchange)="handleCoordinate(1,$event)" type="number" matInput placeholder="Y Coordinates">
+      <input step=".00001" inputmode="numeric" [(ngModel)]="bounds.bottomRight.y" (input)="handleCoordinate()" name="South" type="number"
+        matInput placeholder="Y Coordinates">
     </mat-form-field>
   </mat-card>
 </form>
@@ -24,7 +28,7 @@
     min="0" max="100" invert (input)="handleOpacity($event)">Opacity</mat-slider>
 </div>
 
-<div class="base-size-flex-item">
+<div class="base-size-flex-item button-group">
   <button mat-icon-button (click)="locate()">
     <mat-icon aria-label="Locate overlay on map" color="primary">my_location</mat-icon>
   </button>

@@ -1,9 +1,10 @@
 import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { MatSliderChange } from "@angular/material";
-import { MapService, AppOverlay } from "../services/image-storage.service";
-import { LatLngBounds } from "../../../node_modules/@types/leaflet";
+import { MapService, AppOverlay } from "../services/map.service";
+import { LatLngBounds } from "leaflet";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { DeletionConfirmationDialogComponent } from "../deletion-confrimation-dialog/deletion-confrimation-dialog.component";
+import * as L from "leaflet";
 
 export interface DialogData {
   fileName: string;
@@ -25,7 +26,25 @@ export class FileControlsComponent implements OnInit {
     // this.coordinates = { lat: 0, lng: 0 };
   }
 
-  handleCoordinate(coordinateId: number) {
+  isThrottling: boolean;
+  handleCoordinate() {
+    if (this.isThrottling) {
+      return;
+    } else {
+      this.isThrottling = true;
+      setTimeout(() => {
+        this.isThrottling = false;
+        const bottomRight = L.latLng(
+          this.bounds.bottomRight.y,
+          this.bounds.bottomRight.x
+        );
+        const topLeft = L.latLng(this.bounds.topLeft.y, this.bounds.topLeft.x);
+        const newBounds = L.latLngBounds(bottomRight, topLeft);
+        this.file.setBounds(newBounds);
+      }, 100);
+    }
+    // this.bounds;
+    // this.file.setBounds()
     // coordinateId
     //   ? (this.coordinates.lat = coordinateId)
     //   : (this.coordinates.lng = coordinateId);
@@ -51,19 +70,32 @@ export class FileControlsComponent implements OnInit {
 
   delete() {
     const dialogRef = this.dialog.open(DeletionConfirmationDialogComponent, {
-      width: "250px",
+      width: "50%",
       data: { fileName: this.file.name }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
+      if (result) {
         this.srv.removeImageOverlay(this.file);
       }
     });
   }
-  bounds: LatLngBounds;
+  bounds: {
+    topLeft: { x: number; y: number };
+    bottomRight: { x: number; y: number };
+  };
   ngOnInit() {
-    this.bounds = this.file.getBounds();
+    const fileBounds = this.file.getBounds();
+    this.bounds = {
+      topLeft: {
+        x: fileBounds.getWest(),
+        y: fileBounds.getNorth()
+      },
+      bottomRight: {
+        x: fileBounds.getEast(),
+        y: fileBounds.getSouth()
+      }
+    };
     // console.log(this.file.opacity);
   }
 }
