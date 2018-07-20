@@ -7,7 +7,8 @@ import {
   MatInputModule,
   MatSliderModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatDialogModule
 } from "@angular/material";
 import { NgxsModule } from "@ngxs/store";
 import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
@@ -18,19 +19,18 @@ import { FileListComponent } from "./file-list/file-list.component";
 import { ControlsComponent } from "./controls/controls.component";
 import { FileHelpersModule } from "ngx-file-helpers";
 import { FileControlsComponent } from "./file-controls/file-controls.component";
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { registerLocaleData } from '@angular/common';
-import en from '@angular/common/locales/en';
-
-registerLocaleData(en);
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { registerLocaleData } from "@angular/common";
+import { DeletionConfirmationDialogComponent } from "./deletion-confrimation-dialog/deletion-confrimation-dialog.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     FileListComponent,
     ControlsComponent,
-    FileControlsComponent
+    FileControlsComponent,
+    DeletionConfirmationDialogComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
@@ -42,15 +42,17 @@ registerLocaleData(en);
     MatSliderModule,
     MatIconModule,
     MatCardModule,
+    MatDialogModule,
     FileHelpersModule,
     NgxsModule.forRoot([]),
     NgxsStoragePluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     FormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DeletionConfirmationDialogComponent]
 })
 export class AppModule {}

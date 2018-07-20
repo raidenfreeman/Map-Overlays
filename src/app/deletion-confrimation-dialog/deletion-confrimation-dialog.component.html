@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Confirm Deletion</h1>
+<div mat-dialog-content>
+  <p>Delete {{data.fileName}} permanently?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="false" (click)="onNoClick()">No</button>
+  <button mat-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+</div>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

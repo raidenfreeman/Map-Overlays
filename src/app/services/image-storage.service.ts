@@ -71,4 +71,12 @@ export class MapService {
       this.overlays.next(currentOverlays.filter((_, idx) => idx !== index));
     }
   }
+
+  setBounds(bounds: L.LatLngBounds){
+    if (!this.mapReference) {
+      throw new Error('Map not initialized in MapService');
+    }
+    this.mapReference.invalidateSize(false);
+    this.mapReference.flyToBounds(bounds);
+  }
 }
