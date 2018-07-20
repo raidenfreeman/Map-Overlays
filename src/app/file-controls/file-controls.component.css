@@ -4,9 +4,10 @@
   justify-content: space-around;
 }
 
-.label-heading{
+.label-heading {
   text-align: center;
-  margin: 0; color:rgba(0, 0, 0, 0.6)
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6)
 }
 
 .slider-container {
@@ -16,8 +17,8 @@
   align-items: center;
 }
 
-.base-size-flex-item{
-  flex-grow:1;
+.base-size-flex-item {
+  flex-grow: 1;
 }
 
 .coordinates {
@@ -33,4 +34,7 @@
 .coordinate-pair {
   display: flex;
   flex-direction: column;
+  /* border: 1px solid rgb(224, 224, 224);
+  border-radius: 5px; */
+  padding: 1em;
 }
