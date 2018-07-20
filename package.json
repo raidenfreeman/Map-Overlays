@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-github": "ng build --prod --build-optimizer --base-href \"https://raidenfreeman.github.io/Map-Overlays/\"",
+    "publish": "npx -p angular-cli-ghpages ngh"
   },
   "private": true,
   "dependencies": {
