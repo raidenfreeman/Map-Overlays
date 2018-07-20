@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ImageStorageService } from './image-storage.service';
+import { MapService } from './image-storage.service';
 
 describe('ImageStorageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ImageStorageService]
+      providers: [MapService]
     });
   });
 
-  it('should be created', inject([ImageStorageService], (service: ImageStorageService) => {
+  it('should be created', inject([MapService], (service: MapService) => {
     expect(service).toBeTruthy();
   }));
 });

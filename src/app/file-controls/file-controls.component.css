@@ -1,15 +1,36 @@
-.form{
+.form {
+  flex-grow: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
-.coordinates{
+.label-heading{
+  text-align: center;
+  margin: 0; color:rgba(0, 0, 0, 0.6)
+}
+
+.slider-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.base-size-flex-item{
+  flex-grow:1;
+}
+
+.coordinates {
   max-width: 8em;
 }
 
-:host{
+:host {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.coordinate-pair {
+  display: flex;
+  flex-direction: column;
 }

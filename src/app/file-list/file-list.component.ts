@@ -1,33 +1,30 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
-import {
-  ReadFile,
-  FilePickerDirective,
-  ReadMode
-} from "../../../node_modules/ngx-file-helpers";
-import { ImageStorageService } from "../image-storage.service";
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { ReadFile, FilePickerDirective, ReadMode } from 'ngx-file-helpers';
+import { MapService } from '../services/image-storage.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
-  selector: "app-file-list",
-  templateUrl: "./file-list.component.html",
-  styleUrls: ["./file-list.component.css"]
+  selector: 'app-file-list',
+  templateUrl: './file-list.component.html',
+  styleUrls: ['./file-list.component.css']
 })
-export class FileListComponent {
-  constructor(private str: ImageStorageService){}
+export class FileListComponent implements OnInit {
+  constructor(private str: MapService) {}
   @ViewChild(FilePickerDirective) private filePicker;
   public status: string;
   public picked: ReadFile;
   public readMode = ReadMode.arrayBuffer;
-  public files: ReadFile[] = [];
+  // public files: ReadFile[] = [];
+
+  public addedOverlays: Observable<L.ImageOverlay[]>;
+
+  ngOnInit(): void {
+    this.addedOverlays = this.str.overlays;
+  }
 
   onFilePicked(file: ReadFile) {
-    // file.content
-    // file.
-
-    // console.log(file);
-    // this.files.push(file);
-    this.str.doit(URL.createObjectURL(file.underlyingFile));
-    // this.picked = file;
-
+    this.str.addImageOverlay(file.name, URL.createObjectURL(file.underlyingFile));
   }
 
   onReadEnd(fileCount: number) {

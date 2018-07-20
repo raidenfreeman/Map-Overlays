@@ -1,3 +1,36 @@
-:host{
-  border: 2px dashed #1c375a29;
+.drop-zone {
+  /* border: 2px dashed #1c375a29; */
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: calc(100% - 8px);
+  max-height: 6em;
+  min-height: 3em;
+  background: repeating-linear-gradient( -45deg, rgba(197, 197, 197, 0.31), rgba(197, 197, 197, 0.31) 20px, rgba(51, 51, 51, 0.2) 20px, rgba(51, 51, 51, 0.2) 40px);
+}
+
+.drop-zone>button {
+  position: absolute;
+  margin: auto 0;
+  left: 1em;
+}
+
+.file-list-item {
+  /* padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  /* border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  box-shadow: 4px 4px 8px 0px black; */
+}
+
+.file-list>h2 {
+  flex: 4 1 auto;
+}
+
+.file-list>app-file-controls {
+  flex: 1 1 auto;
 }
