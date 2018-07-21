@@ -23,6 +23,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { registerLocaleData } from "@angular/common";
 import { DeletionConfirmationDialogComponent } from "./deletion-confrimation-dialog/deletion-confrimation-dialog.component";
+import { AddFileDialogComponent } from "./add-file-dialog/add-file-dialog.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DeletionConfirmationDialogComponent } from "./deletion-confrimation-dia
     FileListComponent,
     ControlsComponent,
     FileControlsComponent,
-    DeletionConfirmationDialogComponent
+    DeletionConfirmationDialogComponent,
+    AddFileDialogComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
@@ -53,6 +55,6 @@ import { DeletionConfirmationDialogComponent } from "./deletion-confrimation-dia
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DeletionConfirmationDialogComponent]
+  entryComponents: [AddFileDialogComponent, DeletionConfirmationDialogComponent]
 })
 export class AppModule {}

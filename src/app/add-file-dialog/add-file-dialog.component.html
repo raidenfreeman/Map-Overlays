@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Add Image Overlay</h1>
+<div mat-dialog-content>
+  <p style="word-wrap: break-word">Set the coordinates to place '{{data.fileName}}'</p>
+  <form class="form">
+    <mat-card class="coordinate-pair">
+      <span class="mat-subheading-1" class="label-heading">Top Left</span>
+      <mat-form-field class="coordinates">
+        <input step=".00001" inputmode="numeric" [(ngModel)]="data.west" name="West" type="number" matInput placeholder="X Coordinates">
+      </mat-form-field>
+      <mat-form-field class="coordinates">
+        <input step=".00001" inputmode="numeric" [(ngModel)]="data.north" name="North" type="number" matInput placeholder="Y Coordinates">
+      </mat-form-field>
+    </mat-card>
+    <mat-card class="coordinate-pair">
+      <span class="mat-subheading-1" class="label-heading">Bottom Right</span>
+      <mat-form-field class="coordinates">
+        <input step=".00001" inputmode="numeric" [(ngModel)]="data.east" name="East" type="number" matInput placeholder="X Coordinates">
+      </mat-form-field>
+      <mat-form-field class="coordinates">
+        <input step=".00001" inputmode="numeric" [(ngModel)]="data.south" name="South" type="number" matInput placeholder="Y Coordinates">
+      </mat-form-field>
+    </mat-card>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" cdkFocusInitial [mat-dialog-close]="data">Add</button>
+  <button mat-button color="accent" [mat-dialog-close]="false" (click)="onNoClick()" >Cancel</button>
+</div>
